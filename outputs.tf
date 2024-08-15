@@ -3,7 +3,7 @@ output "instance_id" {
 }
 
 output "bucket_name" {
-  value = aws_s3_bucket.code-databucket.bucket
+  value = aws_s3_bucket.mywebappbucket-2024.bucket
 }
 
 output "role_name" {

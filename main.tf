@@ -2,7 +2,7 @@ resource "aws_instance"  "mywebapp" {
     ami = var.ami
     instance_type = var.instance_type
 
-    tags {
+    tags = {
         Name = "fortescue-${var.environment}-Instance"
     }
 }
@@ -10,7 +10,7 @@ resource "aws_instance"  "mywebapp" {
 resource "aws_s3_bucket" "mywebappbucket-2024" {
     bucket = "fortescue-${var.environment}-bucket"
 
-    tags{
+    tags = {
         Name = "fortescue-${var.environment}-bucket"
         Environment = var.environment
     }
@@ -46,7 +46,7 @@ resource "aws_iam_policy" "s3_access_policy" {
     {
       "Effect": "Allow",
       "Action": "s3:*",
-      "Resource": "${aws_s3_bucket.code-databucket.arn}/*"
+      "Resource": "${aws_s3_bucket.mywebappbucket-2024.arn}/*"
     }
   ]
 }
