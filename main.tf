@@ -3,15 +3,15 @@ resource "aws_instance"  "mywebapp" {
     instance_type = var.instance_type
 
     tags {
-        Name = "Fortescue-${var.environment}-Instance"
+        Name = "fortescue-${var.environment}-Instance"
     }
 }
 
-resource "aws_s3_bucket" {
+resource "aws_s3_bucket" "mywebappbucket-2024" {
     bucket = "fortescue-${var.environment}-bucket"
 
     tags{
-        Name = "Fortescue-${var.environment}-bucket"
+        Name = "fortescue-${var.environment}-bucket"
         Environment = var.environment
     }
 }
